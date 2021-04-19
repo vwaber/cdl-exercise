@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:baselineAligned="false"
+    android:background="@color/cdl_grey">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="@dimen/bottom_nav_item_padding">
+
+        <TextView
+            android:id="@+id/tv_requestequipment"
+            style="@style/bottom_nav_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bottom_nav_label_requestequipment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_nav_underline_thickness"
+            android:layout_marginTop="@dimen/bottom_nav_underline_margin_top"
+            android:background="@color/cdl_yellow"
+            app:layout_constraintLeft_toLeftOf="@id/tv_requestequipment"
+            app:layout_constraintRight_toRightOf="@id/tv_requestequipment"
+            app:layout_constraintTop_toBottomOf="@id/tv_requestequipment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="@dimen/bottom_nav_item_padding">
+
+        <TextView
+            android:id="@+id/tv_activerentals"
+            style="@style/bottom_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bottom_nav_label_activerentals"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_nav_underline_thickness"
+            android:layout_marginTop="@dimen/bottom_nav_underline_margin_top"
+            android:background="@color/cdl_yellow"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="@id/tv_activerentals"
+            app:layout_constraintRight_toRightOf="@id/tv_activerentals"
+            app:layout_constraintTop_toBottomOf="@id/tv_activerentals" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="@dimen/bottom_nav_item_padding">
+
+        <TextView
+            android:id="@+id/tv_openrequests"
+            style="@style/bottom_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bottom_nav_label_openrequests"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_nav_underline_thickness"
+            android:layout_marginTop="@dimen/bottom_nav_underline_margin_top"
+            android:background="@color/cdl_yellow"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="@id/tv_openrequests"
+            app:layout_constraintRight_toRightOf="@id/tv_openrequests"
+            app:layout_constraintTop_toBottomOf="@id/tv_openrequests" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="@dimen/bottom_nav_item_padding">
+
+        <TextView
+            android:id="@+id/tv_myyard"
+            style="@style/bottom_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bottom_nav_label_myyard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_nav_underline_thickness"
+            android:layout_marginTop="@dimen/bottom_nav_underline_margin_top"
+            android:background="@color/cdl_yellow"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="@id/tv_myyard"
+            app:layout_constraintRight_toRightOf="@id/tv_myyard"
+            app:layout_constraintTop_toBottomOf="@id/tv_myyard" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

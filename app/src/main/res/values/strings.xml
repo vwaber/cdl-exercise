@@ -3,4 +3,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="bottom_nav_label_requestequipment">Request\nEquipment</string>
+    <string name="bottom_nav_label_activerentals">Active\nRentals</string>
+    <string name="bottom_nav_label_openrequests">Open\nRequests</string>
+    <string name="bottom_nav_label_myyard">My Yard</string>
 </resources>
