@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.vwaber.cdlexercise.R
 import com.vwaber.cdlexercise.databinding.ActivityMainBinding
 import com.vwaber.cdlexercise.databinding.FragmentRequestequipmentBinding
@@ -29,6 +30,14 @@ class RequestequipmentFragment : Fragment() {
         requestequipmentViewModel.text.observe(viewLifecycleOwner, Observer {
 //            binding.textHome.text = it
         })
+
+        binding.ivCdl.setOnClickListener {
+            findNavController().navigate(
+                RequestequipmentFragmentDirections
+                    .actionNavigationRequestequipmentToCatalogCategoryFragment()
+            )
+        }
+
         return binding.root
     }
 }
