@@ -10,4 +10,23 @@
     <string name="bottom_nav_label_activerentals">Active\nRentals</string>
     <string name="bottom_nav_label_openrequests">Open\nRequests</string>
     <string name="bottom_nav_label_myyard">My Yard</string>
+
+    <string name="label_featured">Featured Equipment</string>
+    <string name="label_choose">Choose Rental Store</string>
+    <string name="content_description_featured">Featured equipment image, Excavator</string>
+
+    <string name="content_description_logo_cat">Cat store logo</string>
+    <string name="content_description_logo_cdl">CDL store logo</string>
+
+    <string name="title_store_cat">Rental Store</string>
+    <string name="info_store_cat_1">Newest rental fleet in the industry</string>
+    <string name="info_store_cat_2">Unlimited length of rental</string>
+    <string name="info_store_cat_3">Quick response time on availability</string>
+
+    <string name="title_store_cdl">Contractor-Owned</string>
+    <string name="info_store_cdl_1">Fixed rental length</string>
+    <string name="info_store_cdl_2">24-hr response time</string>
+    <string name="info_store_cdl_3">Discounted prices</string>
+
+
 </resources>

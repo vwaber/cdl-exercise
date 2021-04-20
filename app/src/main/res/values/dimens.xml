@@ -7,4 +7,7 @@
     <dimen name="bottom_nav_text_size">12sp</dimen>
     <dimen name="bottom_nav_underline_thickness">2dp</dimen>
     <dimen name="bottom_nav_underline_margin_top">5dp</dimen>
+
+    <dimen name="store_separator_thickness">2dp</dimen>
+    <dimen name="store_margin">20dp</dimen>
 </resources>

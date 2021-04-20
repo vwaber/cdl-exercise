@@ -27,7 +27,7 @@ class RequestequipmentFragment : Fragment() {
             ViewModelProvider(this).get(RequestequipmentViewModel::class.java)
 
         requestequipmentViewModel.text.observe(viewLifecycleOwner, Observer {
-            binding.textHome.text = it
+//            binding.textHome.text = it
         })
         return binding.root
     }

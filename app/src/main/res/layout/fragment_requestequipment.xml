@@ -1,22 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.requestequipment.RequestequipmentFragment">
 
     <TextView
-        android:id="@+id/text_home"
+        style="@style/section_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="@string/label_featured" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/content_description_featured"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_featured" />
+
+
+    <TextView
+        style="@style/section_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_choose" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_cat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/store_margin"
+            android:src="@drawable/logo_cat"
+            app:layout_constraintBottom_toTopOf="@id/iv_cdl"
+            app:layout_constraintEnd_toStartOf="@id/ll_cat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/content_description_logo_cat" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/store_margin"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/iv_cat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_cat"
+            app:layout_constraintTop_toTopOf="@id/iv_cat">
+
+            <TextView
+                style="@style/store_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_store_cat" />
+
+            <TextView
+                style="@style/store_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_store_cat_1" />
+
+            <TextView
+                style="@style/store_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_store_cat_2" />
+
+            <TextView
+                style="@style/store_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_store_cat_3" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/store_separator_thickness"
+            android:background="@color/cdl_separator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_cdl"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/content_description_logo_cdl"
+            android:src="@drawable/logo_cat_digital"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/iv_cat"
+            app:layout_constraintStart_toStartOf="@id/iv_cat"
+            app:layout_constraintTop_toBottomOf="@id/iv_cat" />
+
+        <LinearLayout
+            android:id="@+id/ll_cdl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/iv_cdl"
+            app:layout_constraintStart_toStartOf="@id/ll_cat"
+            app:layout_constraintTop_toTopOf="@id/iv_cdl">
+
+            <TextView
+                style="@style/store_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_store_cdl" />
+
+            <TextView
+                style="@style/store_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_store_cdl_1" />
+
+            <TextView
+                style="@style/store_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_store_cdl_2" />
+
+            <TextView
+                style="@style/store_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_store_cdl_3" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
