@@ -8,6 +8,7 @@
     android:background="@color/cdl_grey">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/nav_requestequipment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -27,6 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
+            android:id="@+id/v_underline_requestequipment"
             android:layout_width="0dp"
             android:layout_height="@dimen/bottom_nav_underline_thickness"
             android:layout_marginTop="@dimen/bottom_nav_underline_margin_top"
@@ -38,6 +40,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/nav_activerentals"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -57,11 +60,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
+            android:id="@+id/v_underline_activerentals"
             android:layout_width="0dp"
             android:layout_height="@dimen/bottom_nav_underline_thickness"
             android:layout_marginTop="@dimen/bottom_nav_underline_margin_top"
             android:background="@color/cdl_yellow"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintLeft_toLeftOf="@id/tv_activerentals"
             app:layout_constraintRight_toRightOf="@id/tv_activerentals"
             app:layout_constraintTop_toBottomOf="@id/tv_activerentals" />
@@ -69,6 +73,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/nav_openrequests"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -88,11 +93,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
+            android:id="@+id/v_underline_openrequests"
             android:layout_width="0dp"
             android:layout_height="@dimen/bottom_nav_underline_thickness"
             android:layout_marginTop="@dimen/bottom_nav_underline_margin_top"
             android:background="@color/cdl_yellow"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintLeft_toLeftOf="@id/tv_openrequests"
             app:layout_constraintRight_toRightOf="@id/tv_openrequests"
             app:layout_constraintTop_toBottomOf="@id/tv_openrequests" />
@@ -100,6 +106,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/nav_myyard"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -119,11 +126,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
+            android:id="@+id/v_underline_myyard"
             android:layout_width="0dp"
             android:layout_height="@dimen/bottom_nav_underline_thickness"
             android:layout_marginTop="@dimen/bottom_nav_underline_margin_top"
             android:background="@color/cdl_yellow"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintLeft_toLeftOf="@id/tv_myyard"
             app:layout_constraintRight_toRightOf="@id/tv_myyard"
             app:layout_constraintTop_toBottomOf="@id/tv_myyard" />

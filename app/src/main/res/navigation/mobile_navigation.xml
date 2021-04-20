@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_requestequipment">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.vwaber.cdlexercise.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_requestequipment"
+        android:name="com.vwaber.cdlexercise.ui.requestequipment.RequestequipmentFragment"
+        android:label="@string/title_requestequipment"
+        tools:layout="@layout/fragment_requestequipment" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.vwaber.cdlexercise.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_activerentals"
+        android:name="com.vwaber.cdlexercise.ui.activerentals.ActiverentalsFragment"
+        android:label="@string/title_activerentals"
+        tools:layout="@layout/fragment_activerentals" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.vwaber.cdlexercise.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_openrequests"
+        android:name="com.vwaber.cdlexercise.ui.openrequests.OpenrequestsFragment"
+        android:label="@string/title_openrequests"
+        tools:layout="@layout/fragment_openrequests" />
+
+    <fragment
+        android:id="@+id/navigation_myyard"
+        android:name="com.vwaber.cdlexercise.ui.myyard.MyyardFragment"
+        android:label="@string/title_myyard"
+        tools:layout="@layout/fragment_myyard" />
+
 </navigation>
