@@ -7,11 +7,10 @@
     android:orientation="vertical">
 
     <TextView
+        style="@style/section_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_categories"
-        style="@style/section_label"
-        />
+        android:text="@string/label_categories" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_categories"

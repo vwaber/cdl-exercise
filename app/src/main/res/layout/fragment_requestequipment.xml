@@ -13,14 +13,12 @@
         android:layout_height="wrap_content"
         android:text="@string/label_featured" />
 
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/content_description_featured"
         android:scaleType="centerCrop"
         android:src="@drawable/img_featured" />
-
 
     <TextView
         style="@style/section_label"
@@ -38,13 +36,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/store_margin"
+            android:contentDescription="@string/content_description_logo_cat"
             android:src="@drawable/logo_cat"
             app:layout_constraintBottom_toTopOf="@id/iv_cdl"
             app:layout_constraintEnd_toStartOf="@id/ll_cat"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/content_description_logo_cat" />
-
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/ll_cat"
