@@ -32,8 +32,13 @@
 
     <style name="store_info" parent="TextAppearance.AppCompat">
         <item name="android:textSize">12sp</item>
-        <item name="android:drawableStart">@drawable/icn_check</item>
+        <item name="drawableStartCompat">@drawable/icn_check</item>
         <item name="android:drawablePadding">10dp</item>
+    </style>
+
+    <style name="catalog_category" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
 </resources>

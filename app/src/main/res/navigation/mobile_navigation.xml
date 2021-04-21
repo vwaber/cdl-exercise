@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/navigation_catalog_category"
         android:name="com.vwaber.cdlexercise.ui.catalog.CatalogCategoryFragment"
-        android:label="fragment_catalog_category_list"
+        android:label="@string/title_requestequipment"
         tools:layout="@layout/fragment_catalog_category_list" />
 
 </navigation>

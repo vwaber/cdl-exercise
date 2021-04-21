@@ -3,9 +3,7 @@ package com.vwaber.cdlexercise.ui.catalog
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-
 import com.vwaber.core.entities.Category
-
 import com.vwaber.cdlexercise.databinding.ItemCatalogCategoryBinding
 
 class CatalogCategoryRecyclerViewAdapter(private val values: List<Category>) :
@@ -22,8 +20,7 @@ class CatalogCategoryRecyclerViewAdapter(private val values: List<Category>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.binding.itemNumber.text = item.id.toString()
-        holder.binding.content.text = item.name
+        holder.binding.tvName.text = item.name
     }
 
     override fun getItemCount(): Int = values.size

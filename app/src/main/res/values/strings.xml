@@ -28,5 +28,6 @@
     <string name="info_store_cdl_2">24-hr response time</string>
     <string name="info_store_cdl_3">Discounted prices</string>
 
-
+    <string name="label_categories">What kind of equipment are you looking for?</string>
+    <string name="content_description_right_arrow">Right arrow</string>
 </resources>
