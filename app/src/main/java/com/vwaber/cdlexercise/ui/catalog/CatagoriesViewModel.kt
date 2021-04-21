@@ -7,7 +7,7 @@ import com.vwaber.core.CatalogUseCases
 import com.vwaber.core.entities.Category
 import com.vwaber.data.CatalogRepository
 
-class CatalogViewModel : ViewModel() {
+class CatagoriesViewModel : ViewModel() {
 
     private val _categories = MutableLiveData<List<Category>>().apply {
         CatalogUseCases(CatalogRepository).loadCategories({ value = it }, {})

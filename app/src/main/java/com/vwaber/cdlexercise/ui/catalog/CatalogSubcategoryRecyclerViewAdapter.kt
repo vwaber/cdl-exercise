@@ -1,14 +1,13 @@
 package com.vwaber.cdlexercise.ui.catalog
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import com.vwaber.core.entities.Category
+import androidx.recyclerview.widget.RecyclerView
 import com.vwaber.cdlexercise.databinding.ItemCatalogCategoryBinding
+import com.vwaber.core.entities.Subcategory
 
-class CatalogCategoryRecyclerViewAdapter(private val values: List<Category>) :
-    RecyclerView.Adapter<CatalogCategoryRecyclerViewAdapter.ViewHolder>() {
+class CatalogSubcategoryRecyclerViewAdapter(private val values: List<Subcategory>) :
+    RecyclerView.Adapter<CatalogSubcategoryRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemCatalogCategoryBinding.inflate(
@@ -21,15 +20,7 @@ class CatalogCategoryRecyclerViewAdapter(private val values: List<Category>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.binding.tvName.text = item.name
-
-        holder.binding.root.setOnClickListener {
-            it.findNavController().navigate(
-                CatalogCategoryFragmentDirections.actionNavigationCatalogCategoryToCatalogSubcategoryFragment(
-                    item.id
-                )
-            )
-        }
+        holder.binding.tvName.text = item.display_name
     }
 
     override fun getItemCount(): Int = values.size

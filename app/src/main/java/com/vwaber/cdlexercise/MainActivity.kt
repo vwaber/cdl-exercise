@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                 || super.onSupportNavigateUp()
     }
 
+    @Suppress("DEPRECATION")
     private fun TextView.setStyle(style: Int) {
         if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             this.setTextAppearance(style)

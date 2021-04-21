@@ -12,20 +12,20 @@ import com.vwaber.cdlexercise.databinding.FragmentCatalogCategoryListBinding
 
 class CatalogCategoryFragment : Fragment() {
 
-    private lateinit var catalogViewModel: CatalogViewModel
+    private lateinit var catagoriesViewModel: CatagoriesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentCatalogCategoryListBinding.inflate(layoutInflater)
 
-        catalogViewModel =
-            ViewModelProvider(this).get(CatalogViewModel::class.java)
+        catagoriesViewModel =
+            ViewModelProvider(this).get(CatagoriesViewModel::class.java)
 
         with(binding.rvCategories) {
             layoutManager = LinearLayoutManager(context)
-            catalogViewModel.categories.observe(viewLifecycleOwner, Observer {
+            catagoriesViewModel.categories.observe(viewLifecycleOwner, Observer {
                 adapter = CatalogCategoryRecyclerViewAdapter(it)
             })
         }

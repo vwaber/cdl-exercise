@@ -9,7 +9,7 @@
         android:id="@+id/navigation_requestequipment"
         android:name="com.vwaber.cdlexercise.ui.requestequipment.RequestequipmentFragment"
         android:label="@string/title_requestequipment"
-        tools:layout="@layout/fragment_requestequipment" >
+        tools:layout="@layout/fragment_requestequipment">
         <action
             android:id="@+id/action_navigation_requestequipment_to_catalog_category_fragment"
             app:destination="@id/navigation_catalog_category" />
@@ -37,6 +37,25 @@
         android:id="@+id/navigation_catalog_category"
         android:name="com.vwaber.cdlexercise.ui.catalog.CatalogCategoryFragment"
         android:label="@string/title_requestequipment"
-        tools:layout="@layout/fragment_catalog_category_list" />
+        tools:layout="@layout/fragment_catalog_category_list">
+        <action
+            android:id="@+id/action_navigation_catalog_category_to_catalog_subcategory_fragment"
+            app:destination="@id/navigation_catalog_subcategory">
+            <argument
+                android:name="id"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_catalog_subcategory"
+        android:name="com.vwaber.cdlexercise.ui.catalog.CatalogSubcategoryFragment"
+        android:label="@string/title_requestequipment"
+        tools:layout="@layout/fragment_catalog_category_list">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+
 
 </navigation>
