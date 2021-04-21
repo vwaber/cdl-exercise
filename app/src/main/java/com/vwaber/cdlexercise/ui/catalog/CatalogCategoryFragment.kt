@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.vwaber.cdlexercise.R
-import com.vwaber.cdlexercise.ui.catalog.dummy.DummyContent
 
 class CatalogCategoryFragment : Fragment() {
+
+    private lateinit var catalogViewModel: CatalogViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,10 +21,15 @@ class CatalogCategoryFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_catalog_category_list, container, false)
 
+        catalogViewModel =
+            ViewModelProvider(this).get(CatalogViewModel::class.java)
+
         if (view is RecyclerView) {
             with(view) {
                 layoutManager =  LinearLayoutManager(context)
-                adapter = CatalogCategoryRecyclerViewAdapter(DummyContent.ITEMS)
+                catalogViewModel.categories.observe(viewLifecycleOwner, Observer {
+                    adapter = CatalogCategoryRecyclerViewAdapter(it)
+                })
             }
         }
         return view
