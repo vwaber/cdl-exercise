@@ -5,14 +5,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.vwaber.cdlexercise.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+typealias ViewState = MainViewModel.ViewState
+typealias Destination = MainViewModel.Destination
 
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var mainViewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
@@ -21,50 +26,114 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
+        navController =
+            (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment)
+                .navController
 
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_requestequipment,
-                R.id.navigation_activerentals,
-                R.id.navigation_openrequests,
-                R.id.navigation_myyard
+        setupActionBarWithNavController(
+            navController, AppBarConfiguration(
+                setOf(
+                    R.id.navigation_requestequipment,
+                    R.id.navigation_activerentals,
+                    R.id.navigation_openrequests,
+                    R.id.navigation_myyard
+                )
             )
         )
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.bottomNav.navRequestequipment.setOnClickListener {
-            navController.navigate(R.id.navigation_requestequipment)
-            setAllInactive()
-            setRequestequipmentActive()
+        binding.bottomNav.let {
+            it.navRequestequipment.setOnClickListener(this)
+            it.navActiverentals.setOnClickListener(this)
+            it.navOpenrequests.setOnClickListener(this)
+            it.navMyyard.setOnClickListener(this)
         }
 
-        binding.bottomNav.navActiverentals.setOnClickListener {
-            navController.navigate(R.id.navigation_activerentals)
-            setAllInactive()
-            setActiverentalsActive()
-        }
+        mainViewModel =
+            ViewModelProvider(this).get(MainViewModel::class.java)
 
-        binding.bottomNav.navOpenrequests.setOnClickListener {
-            navController.navigate(R.id.navigation_openrequests)
-            setAllInactive()
-            setOpenrequestsActive()
-        }
+        mainViewModel.viewState.observe(this) { it?.let { render(it) } }
 
-        binding.bottomNav.navMyyard.setOnClickListener {
-            navController.navigate(R.id.navigation_myyard)
-            setAllInactive()
-            setMyyardActive()
-        }
+    }
 
+    private fun render(viewState: ViewState) {
+        setAllInactive()
+        when (viewState.destination) {
+            Destination.REQUEST_EQUIPMENT -> setRequestequipmentActive(true)
+            Destination.ACTIVE_RENTALS -> setActiverentalsActive(true)
+            Destination.OPEN_REQUESTS -> setOpenrequestsActive(true)
+            Destination.MY_YARD -> setMyyardActive(true)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp()
                 || super.onSupportNavigateUp()
+    }
+
+    override fun onClick(v: View?) {
+        with(binding.bottomNav) {
+            when (v) {
+                navRequestequipment -> {
+                    mainViewModel.setDestination(Destination.REQUEST_EQUIPMENT)
+                    navController.navigate(R.id.navigation_requestequipment)
+                }
+                navActiverentals -> {
+                    mainViewModel.setDestination(Destination.ACTIVE_RENTALS)
+                    navController.navigate(R.id.navigation_activerentals)
+                }
+                navOpenrequests -> {
+                    mainViewModel.setDestination(Destination.OPEN_REQUESTS)
+                    navController.navigate(R.id.navigation_openrequests)
+                }
+                navMyyard -> {
+                    mainViewModel.setDestination(Destination.MY_YARD)
+                    navController.navigate(R.id.navigation_myyard)
+                }
+            }
+        }
+    }
+
+    private fun setRequestequipmentActive(active: Boolean) {
+        binding.bottomNav.tvRequestequipment.setActive(active)
+        binding.bottomNav.vUnderlineRequestequipment.setActive(active)
+    }
+
+    private fun setActiverentalsActive(active: Boolean) {
+        binding.bottomNav.tvActiverentals.setActive(active)
+        binding.bottomNav.vUnderlineActiverentals.setActive(active)
+    }
+
+    private fun setOpenrequestsActive(active: Boolean) {
+        binding.bottomNav.tvOpenrequests.setActive(active)
+        binding.bottomNav.vUnderlineOpenrequests.setActive(active)
+    }
+
+    private fun setMyyardActive(active: Boolean) {
+        binding.bottomNav.tvMyyard.setActive(active)
+        binding.bottomNav.vUnderlineMyyard.setActive(active)
+    }
+
+    private fun setAllInactive() {
+        setRequestequipmentActive(false)
+        setActiverentalsActive(false)
+        setOpenrequestsActive(false)
+        setMyyardActive(false)
+    }
+
+    private fun TextView.setActive(active: Boolean) {
+        if (active) {
+            setStyle(R.style.bottom_nav_active)
+        } else {
+            setStyle(R.style.bottom_nav)
+        }
+    }
+
+    private fun View.setActive(active: Boolean) {
+        visibility = if (active) {
+            View.VISIBLE
+        } else {
+            View.INVISIBLE
+        }
     }
 
     @Suppress("DEPRECATION")
@@ -74,51 +143,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             this.setTextAppearance(applicationContext, style)
         }
-    }
-
-    private fun setAllInactive() {
-        val style = R.style.bottom_nav
-        val bottomNav = binding.bottomNav
-
-        val textViews = setOf(
-            bottomNav.tvRequestequipment,
-            bottomNav.tvActiverentals,
-            bottomNav.tvOpenrequests,
-            bottomNav.tvMyyard
-        )
-        for (tv in textViews) {
-            tv.setStyle(style)
-        }
-
-        val underlines = setOf(
-            bottomNav.vUnderlineRequestequipment,
-            bottomNav.vUnderlineActiverentals,
-            bottomNav.vUnderlineOpenrequests,
-            bottomNav.vUnderlineMyyard
-        )
-        for (underline in underlines) {
-            underline.visibility = View.INVISIBLE
-        }
-    }
-
-    private fun setRequestequipmentActive() {
-        binding.bottomNav.tvRequestequipment.setStyle(R.style.bottom_nav_active)
-        binding.bottomNav.vUnderlineRequestequipment.visibility = View.VISIBLE
-    }
-
-    private fun setActiverentalsActive() {
-        binding.bottomNav.tvActiverentals.setStyle(R.style.bottom_nav_active)
-        binding.bottomNav.vUnderlineActiverentals.visibility = View.VISIBLE
-    }
-
-    private fun setOpenrequestsActive() {
-        binding.bottomNav.tvOpenrequests.setStyle(R.style.bottom_nav_active)
-        binding.bottomNav.vUnderlineOpenrequests.visibility = View.VISIBLE
-    }
-
-    private fun setMyyardActive() {
-        binding.bottomNav.tvMyyard.setStyle(R.style.bottom_nav_active)
-        binding.bottomNav.vUnderlineMyyard.visibility = View.VISIBLE
     }
 
 }
